@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:tmlbl/sample_node_mysql.git"
+    "url": "git@github.com:Shippable/sample_node_mysql.git"
   },
   "author": "Tim Lebel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tmlbl/sample_node_mysql/issues"
+    "url": "https://github.com/Shippable/sample_node_mysql/issues"
   },
-  "homepage": "https://github.com/tmlbl/sample_node_mysql",
+  "homepage": "https://github.com/Shippable/sample_node_mysql",
   "dependencies": {
     "knex": "^0.5.14",
     "mysql": "^2.2.0"
