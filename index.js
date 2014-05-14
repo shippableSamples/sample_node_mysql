@@ -11,7 +11,7 @@ var db = knex.initialize({
 });
 
 db.raw('DROP TABLE IF EXISTS things');
-db.raw('CREATE TABLE IF NOT EXISTS things');
+db.raw('CREATE TABLE things');
 
 module.exports.get = function (name, cb) {
   db('things')
