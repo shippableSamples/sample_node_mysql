@@ -10,18 +10,8 @@ var db = knex.initialize({
   }
 });
 
-db.schema.hasTable('things').then(function (exists) {
-  if (exists) {
-    console.log('Table exists, dropping...');
-    db.schema.dropTable('things');
-  } else {
-    db.schema.createTable('things', function (table) {
-      table.string('name');
-    }).then(function () {
-      console.log('Things table is created!');
-    });
-  }
-});
+db.raw('DROP TABLE IF EXISTS things');
+db.raw('CREATE TABLE IF NOT EXISTS things');
 
 module.exports.get = function (name, cb) {
   db('things')
