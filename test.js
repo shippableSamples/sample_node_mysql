@@ -1,15 +1,25 @@
-var app = require('./index.js'),
-    should = require('chai').should();
+var db = require('./index.js').db,
+    expect = require('chai').expect;
 
 describe('MySql Database', function () {
-  it('should save a new name', function () {
-    app.save('Johnson', function (id) {
-      id.should.be.an('array');
+  it('should create the things table', function () {
+    db.schema.hasTable('things').then(function (exists) {
+      expect(exists).to.equal(true);
     });
   });
+  it('should save a new name', function () {
+    db('things')
+      .insert({ name: 'Johnson' })
+      .exec(function (err) {
+        expect(err).to.equal(null);
+      });
+  });
   it('should retrieve that name', function () {
-    app.get('Johnson', function (name) {
-      name.should.equal('Johnson');
-    });
+    db('things')
+      .where({ name: 'Johnson' })
+      .select('name')
+      .then(function (name) {
+        expect(name[0].name).to.equal('Johnson');
+      });
   });
 });

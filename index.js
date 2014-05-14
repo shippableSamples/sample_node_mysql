@@ -12,25 +12,11 @@ var db = knex.initialize({
 
 db.schema.hasTable('things').then(function (exists) {
   if (!exists) {
-    db.schema.createTable('things', function (table) {
-      table.string('name');
+    console.log('Table does not exist, creating...');
+    db.raw('CREATE TABLE things (name char(20));').then(function (res) {
+      console.dir(res);
     });
   }
 });
 
-module.exports.get = function (name, cb) {
-  db('things')
-    .where({ name: name })
-    .select('name')
-    .then(function (name) {
-      cb(name);
-    });
-};
-
-module.exports.save = function (name, cb) {
-  db('things')
-    .insert({ name: name })
-    .exec(function (id) {
-      cb(id);
-    });
-};
+module.exports.db = db;
