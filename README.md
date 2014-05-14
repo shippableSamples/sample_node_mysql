@@ -1,4 +1,10 @@
-sample_node_mysql
+Node.js MySql Sample
 =================
 
-Testing MySql service
+An example using MySql on Shippable with the Knex module.
+
+To run the tests:
+
+`npm test`
+
+Or, preferably, deploy on Shippable.com.
