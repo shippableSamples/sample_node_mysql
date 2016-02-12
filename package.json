@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Shippable/sample_node_mysql",
   "dependencies": {
     "knex": "^0.5.14",
-    "mysql": "^2.2.0"
+    "mysql": "^2.2.0",
+    "lodash": "^3.0"
   },
   "devDependencies": {
     "chai": "^1.9.1",
